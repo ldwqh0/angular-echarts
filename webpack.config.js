@@ -1,7 +1,7 @@
 var path = require('path')
 module.exports = {
   entry: {
-    "angularjs-js-tree": path.resolve(__dirname, './src/ng-js-tree.js')
+    "angular-echarts": path.resolve(__dirname, './src/angular-echarts.js')
   },
   output: {
     path: path.resolve(__dirname, './dist'),
