@@ -1,0 +1,24 @@
+{
+  "name": "angular-echarts",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/angular-echarts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ldwqh0/angular-echarts.git"
+  },
+  "author": "ldwqh0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ldwqh0/angular-echarts/issues"
+  },
+  "homepage": "https://github.com/ldwqh0/angular-echarts#readme",
+  "peerDependencies": {
+    "echarts": "^3.3.0"
+  },
+  "devDependencies": {
+  }
+}
