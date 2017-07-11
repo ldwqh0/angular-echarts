@@ -1,5 +1,6 @@
 import './style.less'
 import echarts from 'echarts'
+import angular from 'angular'
 let module = angular.module('angular.echarts', [])
 let component = {
   template: '<div></div>',

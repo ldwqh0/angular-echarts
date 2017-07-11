@@ -9,6 +9,7 @@ module.exports = {
     libraryTarget: 'umd'
   },
   externals: {
+    angular: "angular",
     echarts: "echarts"
   },
   module: {
