@@ -1,8 +1,8 @@
 import './style.less'
-
+import echarts from 'echarts'
 let module = angular.module('angular.echarts', [])
 let component = {
-  template: '<div>aaa</div>',
+  template: '<div></div>',
   controller: ChartController,
   bindings: {
     option: '<',
