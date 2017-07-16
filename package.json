@@ -1,6 +1,6 @@
 {
   "name": "angular-echarts3",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "main": "dist/angular-echarts.js",
   "scripts": {

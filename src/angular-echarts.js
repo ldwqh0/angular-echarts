@@ -5,7 +5,6 @@ let module = angular.module('angular.echarts', [])
 let component = {
   controller: ChartController,
   bindings: {
-    template: '<div></div>',
     option: '<',
     onCreate: '&'
   }
