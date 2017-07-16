@@ -16,7 +16,9 @@ function ChartController($window, $element) {
   let ctrl = this
   ctrl.$onInit = function () {
     $element.css('display', 'block')
-    $element.width('100%')
+    if (!$element.width()) {
+      $element.width('100%')
+    }
     ctrl.chart = echarts.init($element[0])
     ctrl.onCreate({instance: ctrl.chart})
   }
