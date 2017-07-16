@@ -1,11 +1,11 @@
-import './style.less'
+// import './style.less'
 import echarts from 'echarts'
 import angular from 'angular'
 let module = angular.module('angular.echarts', [])
 let component = {
-  template: '<div></div>',
   controller: ChartController,
   bindings: {
+    template: '<div></div>',
     option: '<',
     onCreate: '&'
   }
@@ -14,9 +14,10 @@ let component = {
 ChartController.$inject = ['$window', '$element']
 function ChartController($window, $element) {
   let ctrl = this
-  ctrl.chart = echarts.init($element.find('div')[0])
-
   ctrl.$onInit = function () {
+    $element.css('display', 'block')
+    $element.width('100%')
+    ctrl.chart = echarts.init($element[0])
     ctrl.onCreate({instance: ctrl.chart})
   }
 
