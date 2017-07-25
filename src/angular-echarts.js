@@ -1,6 +1,7 @@
 // import './style.less'
 import echarts from 'echarts'
 import angular from 'angular'
+
 let module = angular.module('angular.echarts', [])
 let component = {
   controller: ChartController,
@@ -11,6 +12,7 @@ let component = {
 }
 
 ChartController.$inject = ['$window', '$element']
+
 function ChartController($window, $element) {
   let ctrl = this
   ctrl.$onInit = function () {
@@ -19,6 +21,9 @@ function ChartController($window, $element) {
       $element.width('100%')
     }
     ctrl.chart = echarts.init($element[0])
+    if (ctrl.option) {
+      ctrl.chart.setOption(ctrl.option)
+    }
     ctrl.onCreate({instance: ctrl.chart})
   }
 
@@ -31,9 +36,8 @@ function ChartController($window, $element) {
   }
 
   ctrl.$onChanges = function (objects) {
-    if (objects.option.currentValue) {
-      let option_ = objects.option.currentValue
-      ctrl.chart.setOption(option_)
+    if (objects.option && ctrl.chart) {
+      ctrl.chart.setOption(ctrl.option)
     }
   }
 
