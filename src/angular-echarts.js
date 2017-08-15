@@ -38,6 +38,7 @@ function ChartController($window, $element) {
   ctrl.$onChanges = function (objects) {
     if (objects.option && ctrl.chart) {
       ctrl.chart.setOption(ctrl.option)
+      sizeChanged()
     }
   }
 
