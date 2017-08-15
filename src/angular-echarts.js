@@ -15,30 +15,27 @@ ChartController.$inject = ['$window', '$element']
 
 function ChartController($window, $element) {
   let ctrl = this
-  ctrl.$onInit = function () {
+
+  ctrl.$postLink = function () {
     $element.css('display', 'block')
-    if (!$element.width()) {
-      $element.width('100%')
-    }
+    // 优先判断是否有width属性
+    $element.css('width', '100%')
     ctrl.chart = echarts.init($element[0])
     if (ctrl.option) {
       ctrl.chart.setOption(ctrl.option)
     }
     ctrl.onCreate({instance: ctrl.chart})
-  }
-
-  ctrl.$postLink = function () {
     angular.element($window).on('resize', sizeChanged)
   }
 
   ctrl.$onDestroy = function () {
+    ctrl.echarts.dispose()
     angular.element($window).off('resize', sizeChanged)
   }
 
   ctrl.$onChanges = function (objects) {
     if (objects.option && ctrl.chart) {
       ctrl.chart.setOption(ctrl.option)
-      sizeChanged()
     }
   }
 

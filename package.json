@@ -1,6 +1,6 @@
 {
   "name": "angular-echarts3",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "dist/angular-echarts.js",
   "scripts": {
@@ -23,6 +23,7 @@
     "echarts": "^3.3.0"
   },
   "devDependencies": {
+    "angular": "^1.6.5",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
@@ -30,6 +31,7 @@
     "babel-preset-env": "^1.2.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.22.0",
+    "echarts": "^3.6.2",
     "eslint": "^4.2.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-html": "^2.0.3",
