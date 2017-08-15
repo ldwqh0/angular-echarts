@@ -29,7 +29,7 @@ function ChartController($window, $element) {
   }
 
   ctrl.$onDestroy = function () {
-    ctrl.echarts.dispose()
+    ctrl.chart.dispose()
     angular.element($window).off('resize', sizeChanged)
   }
 
