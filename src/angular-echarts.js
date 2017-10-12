@@ -1,7 +1,6 @@
 // import './style.less'
 import echarts from 'echarts'
 import angular from 'angular'
-import './angular-echarts.css'
 
 let module = angular.module('angular.echarts', [])
 let component = {
@@ -27,6 +26,7 @@ function ChartController($window, $element, $scope) {
   }, true)
 
   ctrl.$postLink = function () {
+    $element.css("display", "block")
     if (testVisable()) {
       createChart()
     }
