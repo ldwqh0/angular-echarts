@@ -21,7 +21,7 @@ $scope.onCreate=function(instance) {
 ```
 
 ##属性解析
- * option:图表配置项
+ * option:图表配置项，更多资料请参考http://echarts.baidu.com/option.html
  * onCreate:图标创建回调，可以通过instance获取echarts实例
  
  ## 项目的编译与测试
