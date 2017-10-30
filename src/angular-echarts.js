@@ -30,9 +30,11 @@ function ChartController($window, $element, $scope) {
     if (testVisable()) {
       createChart()
     }
+    angular.element($window).on('resize', sizeChanged)
   }
 
   ctrl.$onDestroy = function () {
+    angular.element($window).off('resize', sizeChanged)
     ctrl.chart.dispose()
   }
 
@@ -56,6 +58,11 @@ function ChartController($window, $element, $scope) {
     return $element[0].offsetWidth > 0 && $element[0].offsetHeight > 0
   }
 
+  function sizeChanged() {
+    if (ctrl.chart) {
+      ctrl.chart.resize()
+    }
+  }
 }
 
 module.component('echarts', component)
