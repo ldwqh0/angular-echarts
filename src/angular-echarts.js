@@ -11,9 +11,9 @@ let component = {
   }
 }
 
-ChartController.$inject = ['$window', '$element', "$scope"]
+ChartController.$inject = ['$window', '$element', '$scope']
 
-function ChartController($window, $element, $scope) {
+function ChartController ($window, $element, $scope) {
   let ctrl = this
   $scope.$watch(testVisable, function (v) {
     if (v) {
@@ -25,8 +25,14 @@ function ChartController($window, $element, $scope) {
     }
   }, true)
 
+  $scope.$watch('$ctrl.option', v => {
+    if (v && ctrl.chat) {
+      ctrl.chart.setOption(ctrl.option)
+    }
+  }, true)
+
   ctrl.$postLink = function () {
-    $element.css("display", "block")
+    $element.css('display', 'block')
     if (testVisable()) {
       createChart()
     }
@@ -38,14 +44,8 @@ function ChartController($window, $element, $scope) {
     ctrl.chart.dispose()
   }
 
-  ctrl.$onChanges = function (objects) {
-    if (objects.option && ctrl.chart) {
-      ctrl.chart.setOption(ctrl.option)
-    }
-  }
-
   //根据图表配置绘制图表·
-  function createChart() {
+  function createChart () {
     ctrl.chart = echarts.init($element[0])
     if (ctrl.option) {
       ctrl.chart.setOption(ctrl.option)
@@ -54,11 +54,11 @@ function ChartController($window, $element, $scope) {
   }
 
   // 测试元素是否具有可以绘制的高宽。
-  function testVisable() {
+  function testVisable () {
     return $element[0].offsetWidth > 0 && $element[0].offsetHeight > 0
   }
 
-  function sizeChanged() {
+  function sizeChanged () {
     if (ctrl.chart) {
       ctrl.chart.resize()
     }
