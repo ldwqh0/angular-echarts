@@ -26,7 +26,7 @@ function ChartController ($window, $element, $scope) {
   }, true)
 
   $scope.$watch('$ctrl.option', v => {
-    if (v && ctrl.chat) {
+    if (v && ctrl.chart) {
       ctrl.chart.setOption(ctrl.option)
     }
   }, true)
