@@ -27,7 +27,7 @@ function ChartController ($window, $element, $scope) {
 
   $scope.$watch('$ctrl.option', v => {
     if (v && ctrl.chart) {
-      ctrl.chart.setOption(ctrl.option)
+      setOption()
     }
   }, true)
 
@@ -48,9 +48,19 @@ function ChartController ($window, $element, $scope) {
   function createChart () {
     ctrl.chart = echarts.init($element[0])
     if (ctrl.option) {
-      ctrl.chart.setOption(ctrl.option)
+      setOption()
     }
     ctrl.onCreate({instance: ctrl.chart})
+  }
+
+  function setOption () {
+    try {
+      ctrl.chart.setOption(ctrl.option)
+
+    } catch (e) {
+      $element[0].innerText = 'The option has error!'
+      console.error('The option has error!', e)
+    }
   }
 
   // 测试元素是否具有可以绘制的高宽。
